@@ -1,4 +1,4 @@
-# generator-reflex [![Build Status](https://secure.travis-ci.org/tabazevedo/generator-reflex.png?branch=master)](https://travis-ci.org/tabazevedo/generator-reflex)
+# generator-reflex
 
 > [Yeoman](http://yeoman.io) generator
 
