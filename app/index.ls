@@ -15,7 +15,8 @@ module.exports = yeoman.generators.Base.extend do
       @fs.copy @template-path('app/**/*'), @destination-path('app')
 
   run-npm: ->
-    @npm-install!
+    unless @options['skip-install']
+      @npm-install!
 
   end: ->
     console.log 'Your Reflex app has been generated! Use \'reflex s\'  to run it.'

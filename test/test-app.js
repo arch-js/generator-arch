@@ -18,10 +18,12 @@ describe('reflex:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'bower.json',
       'package.json',
-      '.editorconfig',
-      '.jshintrc'
+      '.gitignore',
+      'app/app.ls',
+      'app/components/layout.ls',
+      'app/layouts/default.html',
+      'app/routes/welcome.ls'
     ]);
   });
 });
