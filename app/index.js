@@ -15,8 +15,8 @@ module.exports = yeoman.generators.Base.extend({
       );
 
       this.fs.copy(
-        this.templatePath('server.js'),
-        this.destinationPath('server.js')
+        this.templatePath('_.gitignore'),
+        this.destinationPath('.gitignore')
       );
 
       this.fs.copy(
