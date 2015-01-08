@@ -9,6 +9,10 @@ module.exports = generators.Base.extend do
     @context =
       name: @options.name
       dir: @options.dir
+      scripts: {}
+    @package =
+      name: @options.name
+      scripts: {}
     @pkg = require '../package.json'
 
   prompting: ->
@@ -18,29 +22,47 @@ module.exports = generators.Base.extend do
     unless @options.name => prompts.push do
       name: 'name'
       message: 'Project name'
-      default: @appname
+      default: @appname.replace ' ', '-'
 
     unless @options.dir => prompts.push do
       name: 'dir'
       message: 'Project directory'
       default: @options.dir or '.'
 
+    prompts.push do
+      name: 'tasks'
+      message: 'Task runner'
+      default: 'gulp'
+      type: 'list'
+      choices:
+        * name: 'Gulp'
+          value: 'gulp'
+        * name: 'None'
+          value: 'none'
+
     @prompt prompts, (answers) ~>
       @context = @context import answers
+
+      @package.name = answers.name if answers.name
+
+      switch answers.tasks
+      | 'gulp'
+        @context.scripts = @context.scripts import build: 'gulp'
+
+      @package.scripts = JSON.stringify @context.scripts
+
       done!
 
   configuring: ->
     @destinationRoot @context.dir
 
   writing:
-    directory-structure: ->
-      @mkdir 'app'
-      @mkdir 'app/components'
-      @mkdir 'app/layouts'
-      @mkdir 'app/routes'
-
     package: ->
-      @template '_package.json', 'package.json', @context
+      @template '_package.json', 'package.json', @package
+
+    script-files: ->
+      /** TODO: Add script files (e.g. Gulpfile) most
+          likely as subgenerators.           **/
 
     app: ->
       @fs.copy @template-path('_.gitignore'), @destination-path('.gitignore')
