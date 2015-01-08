@@ -8,7 +8,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: {
-    app: function () {
+    app: function(){
       this.fs.copy(
         this.templatePath('_package.json'),
         this.destinationPath('package.json')
@@ -26,9 +26,11 @@ module.exports = yeoman.generators.Base.extend({
     }
   },
 
-  install: function () {
-    this.installDependencies({
-      skipInstall: this.options['skip-install']
-    });
-  }
+  runNpm: function(){
+    this.npmInstall();
+  },
+
+  end: function(){
+    console.log('Your Reflex app has been generated! Use \'reflex s\' to run it.');
+  },
 });
