@@ -26,5 +26,5 @@ module.exports =
             value: 'none'
 
       @prompt prompts, (answers) ~>
-        @config = @config import answers: answers
+        @context = @context import answers: answers
         done!
