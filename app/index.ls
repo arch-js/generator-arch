@@ -1,22 +1,24 @@
 require!{
-  'yeoman-generator': yeoman
+  fs
+  path
+  'yeoman-generator': {generators}
   chalk
   yosay
 }
 
-module.exports = yeoman.generators.Base.extend do
-  initializing: ->
-    @pkg = require '../package.json'
+{each, obj-to-pairs} = require 'prelude-ls'
 
-  writing:
-    app: ->
-      @fs.copy @template-path('_package.json'), @destination-path('package.json')
-      @fs.copy @template-path('_.gitignore'), @destination-path('.gitignore')
-      @fs.copy @template-path('app/**/*'), @destination-path('app')
+parts = fs.readdir-sync path.resolve __dirname + '/parts'
 
-  run-npm: ->
-    unless @options['skip-install']
-      @npm-install!
+generator = {}
 
-  end: ->
-    console.log 'Your Reflex app has been generated! Use \'reflex s\'  to run it.'
+parts |> each ->
+  part = require "./parts/#it"
+  part |> obj-to-pairs |> each ([key, value]) ->
+    if generator[key]
+      part[key] |> obj-to-pairs |> each ([pkey, pval]) ->
+        generator[key][pkey] = pval
+    else
+      generator[key] = part[key]
+
+module.exports = generators.Base.extend generator
