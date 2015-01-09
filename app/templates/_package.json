@@ -1,7 +1,7 @@
 {
-  "name": "<%= name %>",
-  "scripts": <%= scripts %>,
+  "name": "reflex-app",
   "version": "0.0.0",
+  "scripts": {},
   "dependencies": {
     "LiveScript": "^1.3.1",
     "prelude-ls": "^1.1.1",

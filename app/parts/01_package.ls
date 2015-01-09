@@ -1,10 +1,10 @@
-module.exports = ->
+module.exports =
   initializing:
     package: ->
-      @package =
+      @package = @fs.readJSON @template-path('_package.json')
+      @package = @package import do
         name: @options.name
-        scripts: {}
 
   writing:
     package: ->
-      @template '_package.json', 'package.json', @package
+      @fs.write @destination-path('package.json'), JSON.stringify(@package, null, 2)
