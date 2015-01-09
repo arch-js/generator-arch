@@ -12,6 +12,8 @@ module.exports =
 
   writing:
     main: ->
+      switch @config.answers.tasks
+      | 'gulp' => @fs.copy @template-path('_Gulpfile.ls'), @destination-path('Gulpfile.ls')
       @fs.copy @template-path('_.gitignore'), @destination-path('.gitignore')
       @fs.copy @template-path('app/**/*'), @destination-path('app')
 
