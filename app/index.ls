@@ -47,7 +47,7 @@ module.exports = generators.Base.extend do
 
       switch answers.tasks
       | 'gulp'
-        @context.scripts = @context.scripts import build: './node_modules/bin/gulp'
+        @context.scripts = @context.scripts import build: './node_modules/.bin/gulp'
 
       @package.scripts = JSON.stringify @context.scripts
 
