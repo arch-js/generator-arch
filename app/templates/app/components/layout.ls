@@ -1,8 +1,8 @@
-require! <[ react reflex ]>
+require! <[ reflex ]>
 
-d = react.DOM
+d = reflex.DOM
 
-module.exports = reflex.create-component do
+module.exports = React.create-class do
   display-name: 'layout'
 
   render: ->
