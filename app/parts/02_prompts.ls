@@ -14,17 +14,6 @@ module.exports =
         message: 'Project directory'
         default: @options.dir or '.'
 
-      prompts.push do
-        name: 'tasks'
-        message: 'Task runner'
-        default: 'gulp'
-        type: 'list'
-        choices:
-          * name: 'Gulp'
-            value: 'gulp'
-          * name: 'None'
-            value: 'none'
-
       @prompt prompts, (answers) ~>
         @context = @context import answers: answers
         done!
