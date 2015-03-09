@@ -1,11 +1,11 @@
-require! <[ react reflex ]>
-require! <[ ../components/layout ]>
+require! <[ reflex ]>
+layout = reflex.dom require '../components/layout'
 
-d = react.DOM
+d = reflex.DOM
 
-module.exports = reflex.create-component do
+module.exports = React.create-class do
   display-name: 'welcome-page'
   render: ->
-    layout null,
-      d.h1 null, "Welcome! This is your first Reflex app."
-      d.p null, (@props.app-state.get \message).deref!
+    layout do
+      d.h1 "Welcome! This is your first Reflex app."
+      d.p (@props.app-state.get \message).deref!
