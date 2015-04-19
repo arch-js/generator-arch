@@ -13,9 +13,8 @@ module.exports = reflex.application.create do
   get-initial-state: ->
     initial-state
 
-  start: (app-state, notify-done) ->
+  start: (app-state) ->
     app-state.get \message .update -> 'I was updated!'
-    notify-done!
 
   routes: ->
     page = reflex.routes.page
