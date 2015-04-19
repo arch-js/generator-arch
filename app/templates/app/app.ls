@@ -4,6 +4,7 @@ require! <[ reflex ]>
 # route components
 require! <[
   ./routes/welcome
+  ./routes/not-found
 ]>
 
 initial-state =
@@ -13,12 +14,12 @@ module.exports = reflex.application.create do
   get-initial-state: ->
     initial-state
 
-  start: (app-state, notify-done) ->
-    app-state.get \message .update -> 'I was updated!'
-    notify-done!
+  start: (app-state) ->
+    app-state.get \state.message .update -> 'I was updated!'
 
   routes: ->
     page = reflex.routes.page
 
     reflex.routes.define do
       page '/', welcome
+      page '*', not-found

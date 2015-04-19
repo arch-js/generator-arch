@@ -2,7 +2,7 @@ require! <[ reflex ]>
 
 d = reflex.DOM
 
-module.exports = React.create-class do
+module.exports = class
   display-name: 'layout'
 
   render: ->
