@@ -1,5 +1,5 @@
 # module dependencies
-require! <[ reflex ]>
+require! <[ arch ]>
 
 # route components
 require! <[
@@ -10,7 +10,7 @@ require! <[
 initial-state =
   message: 'I am immutable!'
 
-module.exports = reflex.application.create do
+module.exports = arch.application.create do
   get-initial-state: ->
     initial-state
 
@@ -18,8 +18,8 @@ module.exports = reflex.application.create do
     app-state.get \state.message .update -> 'I was updated!'
 
   routes: ->
-    page = reflex.routes.page
+    page = arch.routes.page
 
-    reflex.routes.define do
+    arch.routes.define do
       page '/', welcome
       page '*', not-found

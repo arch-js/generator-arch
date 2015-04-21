@@ -1,10 +1,10 @@
 {
-  "name": "generator-reflex",
+  "name": "generator-arch",
   "version": "0.0.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "tabazevedo/generator-reflex",
+  "repository": "tabazevedo/generator-arch",
   "author": {
     "name": "Tiago Azevedo",
     "email": "tabazevedo@gmail.com",
