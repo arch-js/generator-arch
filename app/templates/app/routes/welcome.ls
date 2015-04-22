@@ -1,10 +1,12 @@
-require! <[ arch ./base-route ]>
+require! {
+  './base-route': BaseRoute
+  arch
+}
 layout = arch.dom require '../components/layout'
 
 d = arch.DOM
 
-module.exports = class extends base-route
-  display-name: 'welcome-page'
+module.exports = class WelcomeRoute extends base-route
   get-title: -> super "Welcome!"
   render: ->
     layout do

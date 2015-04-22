@@ -2,7 +2,7 @@ require! <[ arch ]>
 
 d = arch.DOM
 
-module.exports = class
+module.exports = class Layout extends React.Component
   display-name: 'layout'
 
   render: ->
