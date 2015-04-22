@@ -4,7 +4,7 @@
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "tabazevedo/generator-arch",
+  "repository": "redbadger/generator-arch",
   "author": {
     "name": "Tiago Azevedo",
     "email": "tabazevedo@gmail.com",

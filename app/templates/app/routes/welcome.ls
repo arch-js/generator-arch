@@ -6,7 +6,7 @@ layout = arch.dom require '../components/layout'
 
 d = arch.DOM
 
-module.exports = class WelcomeRoute extends base-route
+module.exports = class WelcomeRoute extends BaseRoute
   get-title: -> super "Welcome!"
   render: ->
     layout do
