@@ -22,4 +22,4 @@ module.exports =
 
     main: ->
       @config.save!
-      console.log 'Your Arch app has been generated! Use \'arch s\'  to run it.'
+      console.log 'Your Arch app has been generated! Use \'arch-cli s\'  to run it.'
