@@ -36,7 +36,7 @@ describe('arch:app', function () {
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .withOptions({ 'skip-install': true })
         .withPrompt({
-          scaffold: 'es6'
+          language: 'es6'
         })
         .on('end', done);
     });

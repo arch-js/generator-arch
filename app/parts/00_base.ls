@@ -13,7 +13,7 @@ module.exports =
   writing:
     main: ->
       @fs.copy @template-path('_.gitignore'), @destination-path('.gitignore')
-      if @context.answers.scaffold == 'ls'
+      if @context.answers.language == 'ls'
       then @fs.copy @template-path('app-ls/**/*'), @destination-path('app')
       else @fs.copy @template-path('app-es6/**/*'), @destination-path('app')
 

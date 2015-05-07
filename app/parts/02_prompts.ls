@@ -14,10 +14,10 @@ module.exports =
         message: 'Project directory'
         default: @options.dir or '.'
 
-      unless @options.scaffold_as => prompts.push do
-        name: 'scaffold'
+      unless @options.language => prompts.push do
+        name: 'language'
         message: 'Scaffold app as LiveScript or ES6'
-        default: @options.scaffold or 'ls'
+        default: @options.language or 'ls'
 
       @prompt prompts, (answers) ~>
         @context = @context import answers: answers
