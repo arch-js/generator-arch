@@ -1,7 +1,7 @@
 {
   "name": "arch-app",
   "version": "0.0.0",
-  "main": "app/app.ls",
+  "main": "app/app",
   "scripts": {},
   "dependencies": {
     "LiveScript": "^1.3.1",
