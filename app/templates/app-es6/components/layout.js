@@ -3,7 +3,8 @@ import arch from 'arch';
 const d = arch.DOM;
 
 class Layout extends React.Component {
-  constructor() {
+  constructor(props, context) {
+    super(props, context);
     this.displayName = 'layout';
   }
 
