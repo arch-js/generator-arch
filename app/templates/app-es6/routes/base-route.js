@@ -1,12 +1,13 @@
 let html = `<!doctype html>
   <html lang="en">
-  <head>
-    <meta charset="utf-8">
+    <head>
+      <meta charset="utf-8">
       <title>{title}</title>
-      <body>
+    </head>
+    <body>
       {body}
-      </body>
-    </html>`;
+    </body>
+  </html>`;
 
 // This is a base route for convenient definition of outer layout and
 // page title. All route components inherit from this class
